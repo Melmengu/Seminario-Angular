@@ -1,0 +1,7 @@
+<img src="assets/img/cart3.jpg" alt="carrito de compras">
+
+<ul>
+    <li *ngFor= "let chocolate of (cartList$ |async)">
+        {{chocolate.chocolate}}: {{chocolate.quantity}}
+    </li>
+</ul>

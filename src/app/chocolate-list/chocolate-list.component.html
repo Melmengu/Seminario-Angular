@@ -1,0 +1,30 @@
+<table class="table">
+    <thead>
+        <tr class="items">
+            <th>IMAGEN</th>
+            <th>CHOCOLATES</th>
+            <th>UNIDADES</th>
+            <th>PRECIO</th>
+            <th>CANTIDAD</th>
+            <th></th>
+            <th>COMPRA</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let chocolate of chocolates" [ngClass]="{'clearence':chocolate.clearance}">
+            <td><img [src]="chocolate.image" [alt]="chocolate.chocolate"></td>
+            <td>{{chocolate.chocolate}}</td>
+            <td>{{chocolate.units}}</td>
+            <td>{{chocolate.price | currency}}</td>
+            <td ><span class="badge bg-light text-dark" *ngIf="chocolate.stock == 0">SIN STOCK</span> </td>
+            <td ><span class="badge bg-danger" *ngIf="chocolate.clearance1 == true">OFERTA</span> </td>
+            <td>
+             <app-input-integer [(quantity)]="chocolate.quantity" [max] ="chocolate.stock" *ngIf="chocolate.stock" (maxReached)= "maxReached($event)" ></app-input-integer>   
+            </td>
+            <td> 
+             <button type="button" class="btn" (click) ="addToCart(chocolate)"> <img src="assets/img/add.png" > </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

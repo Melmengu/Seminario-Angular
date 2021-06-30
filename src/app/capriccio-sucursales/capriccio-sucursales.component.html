@@ -1,0 +1,11 @@
+
+    <h1>SUCURSALES</h1>
+
+        <div *ngFor="let sucursales of sucursal" >
+            <div class="sucursal">
+            <img [src]="sucursales.image" [alt]="sucursales.city">
+         {{sucursales.addres | uppercase}}
+         {{sucursales.phone}}
+         {{sucursales.city | uppercase}}
+             </div>
+        </div>    
